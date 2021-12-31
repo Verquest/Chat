@@ -14,7 +14,8 @@ public class ChatServer implements Runnable {
         System.out.println("[Server] - starting...");
         this.port = port;
         try {
-            server = new ServerSocket(port, 50);
+            ipAddress = InetAddress.getByName("localhost");
+            server = new ServerSocket(port, 50, ipAddress);
         } catch (UnknownHostException e) {
             System.out.println("Couldnt resolve address.");
         } catch (IOException e) {

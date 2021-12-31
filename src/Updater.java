@@ -14,7 +14,7 @@ public class Updater {
     public void triggerUpdate(String msg, String ip, int port){
         for(ClientHandler client: clients){
             if(client.getPort()!=port) {
-                client.send(ip + ":" + port + ": " + msg);
+                client.send(client.nickname + ": " + msg);
                 System.out.println("[Updater] - Sending: " + msg + " to client on port: " + client.getPort());
             }
         }

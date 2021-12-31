@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ClientHandler implements Runnable{
     private Socket clientSocket;
@@ -12,7 +13,10 @@ public class ClientHandler implements Runnable{
     private BufferedReader input;
     private ArrayList<String> receivedMessages = new ArrayList<>();
     private Updater updater;
+    public String nickname;
     public ClientHandler(Socket clientSocket, Updater updater) {
+        Random dupa = new Random();
+        nickname = Integer.toHexString(dupa.nextInt(10000000));
         this.clientSocket = clientSocket;
         this.updater = updater;
         try {
